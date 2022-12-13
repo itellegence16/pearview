@@ -1,0 +1,8 @@
+{
+"course_id":   ["course_id", "course_number", "course_value","id"],
+"course_name": ["course_name","subject","name"],
+"start_date":  ["start_date","begin_date"],
+"course_capacity": ["head_count","course_capacity"]
+}
+
+

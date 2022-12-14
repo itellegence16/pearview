@@ -22,11 +22,14 @@ def read_source_data():
     df_target = spark.read.csv(col_csv,header=True)
     for file in os.listdir(source_dir):
         df_source = spark.read.csv(source_dir+file,header=True)
+        print("Source: "+file)
+        print(df_source.show(50))
         df_target=transform_source_data(df_source,df_target)
     ### This is to store output data in csv for future use##
     df_target.toPandas().to_csv(target_file,index=False)
     print(df_target.columns)
-    print(df_target.show())
+    print("Target table: ")
+    print(df_target.show(50))
 
 
 def transform_source_data(df_source,df_target):

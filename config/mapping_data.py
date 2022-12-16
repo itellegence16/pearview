@@ -1,35 +1,51 @@
+import getpass_asterisk.getpass_asterisk
 import pandas as pd
 from pyspark import SparkContext
 from pyspark.sql import SparkSession
+import mysql.connector
+from mysql.connector import Error
 from pyspark.sql.functions import when,split
-import os,json
+import os,json,getpass
 #table_details=str(input("Enter the table name: e.g. student, course, fee: ")).lower()
 table_details="student"
 source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\"+table_details+"\\"
 config_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\config\\"
-source_dir_length=len(os.listdir(   source_dir))
+source_dir_length=len(os.listdir(source_dir))
 target_file=config_dir+"target_mapped_data.csv"
 col_csv=config_dir+"col.csv"
 pd.set_option('display.max_columns', None)
 config_file=open(config_dir+table_details+"_config.json")
 column_mapping = json.load(config_file)
+config_file_mysql_table = open(config_dir+"mysql_config_write.json")
+json_file_mysql_table=json.load(config_file_mysql_table)
+i=0
+password=getpass.getpass("Enter the password for MYSQL workbench user "+json_file_mysql_table["config"][i]["user"]+ ": ")
 def create_spark_session():
-    spark=SparkSession.builder.appName('Read source data into dataframe').getOrCreate()
+    spark=SparkSession.builder.config\
+    ("spark.driver.extraClassPath",json_file_mysql_table["config"][i]["spark_driver_path"])\
+            .appName('Read source data into dataframe').getOrCreate()
     return spark
+
+def consolidated_data_to_sql(df_target):
+        df_target.select(df_target.columns).write.format("jdbc").option("url", "jdbc:"+json_file_mysql_table["config"][i]["mysql_host_url"]\
+                +":"+json_file_mysql_table["config"][i]["mysql_port"]+"/"+json_file_mysql_table["config"][i]["db_name"]) \
+            .option("driver", json_file_mysql_table["config"][i]["driver"]).option("dbtable", json_file_mysql_table["config"][i]["table_name"]) \
+            .option("user", json_file_mysql_table["config"][i]["user"]).option("password", password).mode('overwrite').save()
 def read_source_data():
     df_col= pd.DataFrame(columns=list(column_mapping.keys()))
     csv_col=df_col.to_csv(col_csv,index=False)
     df_target = spark.read.csv(col_csv,header=True)
+    ###To read csv files generated from mysql tables as well and normal csv's as well###
     for file in os.listdir(source_dir):
         df_source = spark.read.csv(source_dir+file,header=True)
         print("Source: "+file)
-        print(df_source.show(50))
         df_target=transform_source_data(df_source,df_target)
     ### This is to store output data in csv for future use##
     df_target.toPandas().to_csv(target_file,index=False)
     print(df_target.columns)
     print("Target table: ")
-    print(df_target.show(50))
+    ####Load consolidated data into MySql Table###
+    consolidated_data_to_sql(df_target)
 
 
 def transform_source_data(df_source,df_target):
@@ -46,10 +62,10 @@ def transform_source_data(df_source,df_target):
             ####Renaming the column names from source target to common target df#######
             df_source=df_source.withColumnRenamed(common_column,key)
             #print(df_source.columns)
-            if(key=="gender"):
-                df_source=df_source.withColumn("gender", when((df_source.gender == "M") | (df_source.gender == "Male") | (df_source.gender == "Men"), "Male")\
-                                               .when((df_source.gender == "F") | (df_source.gender == "Female") | (df_source.gender == "Women"), "Female")\
-                        .otherwise(df_source.gender))
+            if(key=="Gender"):
+                df_source=df_source.withColumn("Gender", when((df_source.Gender == "M") | (df_source.Gender == "Male") | (df_source.Gender == "Men"), "Male")\
+                                               .when((df_source.Gender == "F") | (df_source.Gender == "Female") | (df_source.Gender == "Women"), "Female")\
+                        .otherwise(df_source.Gender))
     #### To input source column data into target columns####
     result=df_source.unionByName(df_target,allowMissingColumns=True)
     ##

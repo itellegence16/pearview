@@ -1,1 +1,1 @@
-student_id,enrollment_number,first_name,last_name,middle_name,date_of_birth,gender,permanent_address,current_address,city,country,zip_code,email_id,contact_number,alternate_number,university,enrollment_date,stream
+StudentId,EnrollmentNumber,FirstName,LastName,MiddleName,DateOfBirth,Gender,PermanentAddress,CurrentAddress,City,Country,ZipCode,EmailId,ContactNumber,AlternateNumber,University,EnrollmentDate,Stream

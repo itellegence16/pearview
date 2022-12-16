@@ -1,0 +1,4 @@
+student_id,enrollment_number,last_name,first_name,middle_name,birthday,date_of_enrollment,email_id,gender,course_enrolled,contact_number,alternate_number,category,Address,City,Country,pincode
+2000,251,William,Robert,Ferry,1994-03-30,2012-06-30,rwilliam@gmail.com,Male,Engineering,986456781,,G,36 Henry Courts,LA,USA,672461
+2001,252,Symonds,Shawn,William,1994-06-30,2012-10-30,smarsh@gmail.com,Male,Science,789789571,,G,36 Courts Alps,LA,USA,672461
+2002,253,Henry,Shakes,William,1996-06-30,2020-10-30,sshakes@gmail.com,Male,Science,789722571,,G,598 Courts Alps,LA,USA,672461

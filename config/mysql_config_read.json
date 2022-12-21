@@ -17,7 +17,7 @@
 "mysql_port": "3306",
 "driver":"com.mysql.jdbc.Driver",
 "table_name":"mysql_student",
-"db_name" : "pearview",
+"db_name" : "pearview2",
 "user"  : "root",
 "query" : "select * from "
 }

@@ -1,9 +1,6 @@
 import getpass_asterisk.getpass_asterisk
 import pandas as pd
-from pyspark import SparkContext
 from pyspark.sql import SparkSession
-import mysql.connector
-from mysql.connector import Error
 from pyspark.sql.functions import when,split
 import os,json,getpass
 #table_details=str(input("Enter the table name: e.g. student, course, fee: ")).lower()
@@ -16,21 +13,21 @@ col_csv=config_dir+"col.csv"
 pd.set_option('display.max_columns', None)
 config_file=open(config_dir+table_details+"_config.json")
 column_mapping = json.load(config_file)
-config_file_mysql_table = open(config_dir+"mysql_config_write.json")
-json_file_mysql_table=json.load(config_file_mysql_table)
+config_file = open(config_dir+"write_source_config.json")
+json_file_config_details=json.load(config_file)
 i=0
-password=getpass.getpass("Enter the password for MYSQL workbench user "+json_file_mysql_table["config"][i]["user"]+ ": ")
+#password=getpass.getpass("Enter the password for MYSQL workbench user "+json_file_mysql_table["config"][i]["user"]+ ": ")
 def create_spark_session():
     spark=SparkSession.builder.config\
-    ("spark.driver.extraClassPath",json_file_mysql_table["config"][i]["spark_driver_path"])\
+    ("spark.driver.extraClassPath",json_file_config_details["mysql"][i]["spark_driver_path"])\
             .appName('Read source data into dataframe').getOrCreate()
     return spark
 
 def consolidated_data_to_sql(df_target):
-        df_target.select(df_target.columns).write.format("jdbc").option("url", "jdbc:"+json_file_mysql_table["config"][i]["mysql_host_url"]\
-                +":"+json_file_mysql_table["config"][i]["mysql_port"]+"/"+json_file_mysql_table["config"][i]["db_name"]) \
-            .option("driver", json_file_mysql_table["config"][i]["driver"]).option("dbtable", json_file_mysql_table["config"][i]["table_name"]) \
-            .option("user", json_file_mysql_table["config"][i]["user"]).option("password", password).mode('overwrite').save()
+        df_target.select(df_target.columns).write.format("jdbc").option("url", "jdbc:"+json_file_config_details["mysql"][i]["mysql_host_url"]\
+                +":"+json_file_config_details["mysql"][i]["mysql_port"]+"/"+json_file_config_details["mysql"][i]["db_name"]) \
+            .option("driver", json_file_config_details["mysql"][i]["driver"]).option("dbtable", json_file_config_details["mysql"][i]["table_name"]) \
+            .option("user", json_file_config_details["mysql"][i]["user"]).option("password", json_file_config_details["mysql"][i]["password"]).mode('overwrite').save()
 def read_source_data():
     df_col= pd.DataFrame(columns=list(column_mapping.keys()))
     csv_col=df_col.to_csv(col_csv,index=False)

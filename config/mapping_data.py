@@ -24,11 +24,11 @@ def create_spark_session():
             .appName('Read source data into dataframe').getOrCreate()
     return spark
 
-'''def consolidated_data_to_sql(df_target):
+def consolidated_data_to_sql(df_target):
         df_target.select(df_target.columns).write.format("jdbc").option("url", "jdbc:"+json_file_config_details["mysql"][i]["mysql_host_url"]\
                 +":"+json_file_config_details["mysql"][i]["mysql_port"]+"/"+json_file_config_details["mysql"][i]["db_name"]) \
             .option("driver", json_file_config_details["mysql"][i]["driver"]).option("dbtable", json_file_config_details["mysql"][i]["table_name"]) \
-            .option("user", json_file_config_details["mysql"][i]["user"]).option("password", json_file_config_details["mysql"][i]["password"]).mode('overwrite').save()'''
+            .option("user", json_file_config_details["mysql"][i]["user"]).option("password", json_file_config_details["mysql"][i]["password"]).mode('overwrite').save()
 def read_source_data():
     df_col= pd.DataFrame(columns=list(column_mapping.keys()))
     csv_col=df_col.to_csv(col_csv,index=False)

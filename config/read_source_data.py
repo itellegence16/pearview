@@ -8,10 +8,11 @@ import getpass
 db_name="pearview"
 #table_details=str(input("Enter the table name: e.g. student, course, fee: ")).lower()
 table_details="student"
-config_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\config\\"
-source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\"+table_details+"\\"
+config_dir=r"C:\Users\Swati P Kamble\Documents\GitHub\pearview\config\\"
+source_dir=r"C:\Users\Swati P Kamble\Documents\GitHub\pearview\student\\"+table_details+"\\"
 config_file = open(config_dir+"read_source_config.json")
 json_file_config_details=json.load(config_file)
+print(len(json_file_config_details))
 
 def read_from_mysql():
   try:
@@ -53,5 +54,5 @@ def read_from_rds():
    except:
        print("No RDS instance has been configured")
 
-read_from_mysql()
-#read_from_rds()
+#read_from_mysql()
+read_from_rds()

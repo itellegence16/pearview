@@ -1,0 +1,13 @@
+{
+"College_Id": ["college_id", "colleges_id", "id"],
+"University_Id": ["university_id", "id"],
+"CollegeName": ["college_name", "college-name"],
+"CollegeAddress": [ "address"],
+"City": ["city","City"],
+"State": ["state","State"],
+"Country": ["country", "nation","Country"],
+"ZipCode": ["pincode", "zipcode"],
+"ContactNumber": [ "contact_no1", "contact_num1","ContactNumber"],
+"AlternateNumber": ["contact_no2", "contact_num2","AlternateNumber"]
+}
+

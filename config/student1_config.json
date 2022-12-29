@@ -1,0 +1,22 @@
+{
+"Student_id": ["id", "student_id", "stud_id","StudentId"],
+"EnrollmentNumber": ["enrollment_number", "enrollment_id","EnrollmentNumber"],
+"FirstName": ["fname", "first_name","name","full-name","FirstName"],
+"LastName": ["lname", "last_name","LastName"],
+"MiddleName": ["middle_name","MiddleName"],
+"DateOfBirth": ["dob", "birthdate", "birthday","DateOfBirth"],
+"Gender": ["sex", "gender","Gender"],
+"PermanentAddress": ["permanent_address", "address1","PermanentAddress"],
+"CurrentAddress": ["current_address", "address2","currentaddress","CurrentAddress"],
+"City": ["city","City"],
+"Country": ["country", "nation","Country"],
+"ZipCode": ["pin_code", "zip_code", "pincode","ZipCode"],
+"EmailId": ["email", "email_id","EmailId"],
+"ContactNumber": ["phone_number", "phone_no", "contact_number", "contact_no","ContactNumber"],
+"AlternateNumber": ["alternate_contact_no","alternate_no","AlternateNumber"],
+"CollegeName": ["college_name", "college","CollegeName"],
+"EnrollmentDate": ["enrollment_date", "enroll_date", "date_of_enrollment","EnrollmentDate"],
+"College_id": ["college_id", "colleges_id","College_id"]
+"Course_id": ["course_id", "courses_id"]
+}
+

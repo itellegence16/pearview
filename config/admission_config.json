@@ -2,5 +2,7 @@
 "Admission_id":   ["Admission_id", "admission_id"],
 "Course_Applied_Date": ["course_applied_date","applied_date"],
 "Course_Enrollment_date":  ["course_enrolled_date","Admission_date"],
-
+"Admission_fee": ["admission_fee","fee"],
+  "Course_id": ["course_id", "courses_id"],
+  "Student_id": ["student_id", "stud_id"]
 }

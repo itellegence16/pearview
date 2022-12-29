@@ -76,7 +76,7 @@ def transform_source_data(df_source,df_target):
     ##
     return result
 
-def TEST_convert_dates(ds_with_dates):
+def convert_dates(ds_with_dates):
     spark.sql("set spark.sql.legacy.timeParserPolicy=LEGACY")
     sdf = ds_with_dates.withColumn("yyyy/MM/dd", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'yyyy/MM/dd').cast('timestamp'))) \
         .withColumn("yyyy-MM-dd", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'yyyy-MM-dd').cast('timestamp'))) \

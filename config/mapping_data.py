@@ -3,6 +3,7 @@ import pandas as pd
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import when,split
 import os,json,getpass
+from pyspark.sql import functions as F
 #table_details=str(input("Enter the table name: e.g. student, course, fee: ")).lower()
 table_details="student"
 source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\"+table_details+"\\"
@@ -63,6 +64,8 @@ def transform_source_data(df_source,df_target):
                 df_source=df_source.withColumn("Gender", when((df_source.Gender == "M") | (df_source.Gender == "Male") | (df_source.Gender == "Men"), "Male")\
                                                .when((df_source.Gender == "F") | (df_source.Gender == "Female") | (df_source.Gender == "Women"), "Female")\
                         .otherwise(df_source.Gender))
+            if (key == "EnrollmentDate"):
+                df_source = TEST_convert_dates(df_source)
     #### To input source column data into target columns####
     result=df_source.unionByName(df_target,allowMissingColumns=True)
     ##
@@ -72,6 +75,20 @@ def transform_source_data(df_source,df_target):
     # print(result.show())
     ##
     return result
+
+def TEST_convert_dates(ds_with_dates):
+    spark.sql("set spark.sql.legacy.timeParserPolicy=LEGACY")
+    sdf = ds_with_dates.withColumn("yyyy/MM/dd", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'yyyy/MM/dd').cast('timestamp'))) \
+        .withColumn("yyyy-MM-dd", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'yyyy-MM-dd').cast('timestamp'))) \
+        .withColumn("MM/dd/yyyy", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'MM/dd/yyyy').cast('timestamp'))) \
+        .withColumn("MM-dd-yyyy", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'MM-dd-yyyy').cast('timestamp'))) \
+        .withColumn("dd/MM/yy", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'dd/MM/yy').cast('timestamp'))) \
+        .withColumn("dd-MM-yy", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'dd-MM-yy').cast('timestamp'))) \
+        .withColumn("STANDARD_DATE",
+                    F.coalesce("yyyy/MM/dd", "yyyy-MM-dd", "MM/dd/yyyy", "MM-dd-yyyy", 'dd/MM/yy', 'dd-MM-yy'))
+    sdf1 = sdf.drop('yyyy/MM/dd',"yyyy-MM-dd", "MM/dd/yyyy", "MM-dd-yyyy", 'dd/MM/yy', 'dd-MM-yy')
+    return sdf1
+
 
 if __name__ == '__main__':
     spark = create_spark_session()

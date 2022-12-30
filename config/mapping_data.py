@@ -4,17 +4,17 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import when,split
 import os,json,getpass
 from pyspark.sql import functions as F
-#table_details=str(input("Enter the table name: e.g. student, course, fee: ")).lower()
-table_details="student"
-source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\"+table_details+"\\"
-config_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\config\\"
+table_details=str(input("Enter the table name: e.g. student, course, college: ")).lower()
+source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\source_input\\"+table_details+"\\"
+config_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\config\\"+table_details+"\\"
+output_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\output\\"
 source_dir_length=len(os.listdir(source_dir))
-target_file=config_dir+"target_mapped_data.csv"
-col_csv=config_dir+"col.csv"
+target_file=output_dir+"target_mapped_data_"+table_details+".csv"
+col_csv=output_dir+"col.csv"
 pd.set_option('display.max_columns', None)
 config_file=open(config_dir+table_details+"_config.json")
 column_mapping = json.load(config_file)
-config_file = open(config_dir+"write_source_config.json")
+config_file = open(config_dir+"write_source_"+table_details+"_config.json")
 json_file_config_details=json.load(config_file)
 i=0
 #password=getpass.getpass("Enter the password for MYSQL workbench user "+json_file_mysql_table["config"][i]["user"]+ ": ")
@@ -65,7 +65,7 @@ def transform_source_data(df_source,df_target):
                                                .when((df_source.Gender == "F") | (df_source.Gender == "Female") | (df_source.Gender == "Women"), "Female")\
                         .otherwise(df_source.Gender))
             if (key == "EnrollmentDate"):
-                df_source = TEST_convert_dates(df_source)
+                df_source = convert_dates(df_source)
     #### To input source column data into target columns####
     result=df_source.unionByName(df_target,allowMissingColumns=True)
     ##

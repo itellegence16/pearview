@@ -1,0 +1,60 @@
+CREATE TABLE admission_fact (
+   EnrollmentNumber int,
+   TimeId int,
+   CourseId int,
+   CollegeId int,
+   FOREIGN KEY (EnrollmentNumber) REFERENCES student_dim(EnrollmentNumber),
+   FOREIGN KEY (TimeId) REFERENCES time_dim(TimeId),
+   FOREIGN KEY (CourseId) REFERENCES course_dim(CourseId),
+   FOREIGN KEY (CollegeId) REFERENCES college_dim(CollegeId)   
+   )
+   
+   
+CREATE TABLE college_dim (
+   CollegeId int,
+   EnrollmentNumber int,
+   CollegeName varchar(100),
+   UniversityId int,
+   CollegeAddress varchar(100),
+   City varchar(20),
+   Country varchar(20),
+   ZipCode varchar(20),
+   Primary key (CollegeId)
+   )
+   
+CREATE TABLE student_dim (
+   EnrollmentNumber int,
+   FirstName varchar(20),
+   LastName varchar(20),
+   Gender varchar(10),
+   PermanentAddress varchar(100),
+   City varchar(20),
+   Country varchar(20),
+   ZipCode varchar(20),
+   Primary key (EnrollmentNumber)
+   )
+   
+   
+CREATE TABLE course_dim (
+    CourseId int,
+	CourseName varchar(30),
+	CourseCapacity int,
+	CourseStartMonth varchar(20),
+	CourseFaculty varchar (20),
+	Primary key (CourseId)
+   )
+   
+CREATE TABLE time_dim (
+    TimeId int,
+	Year int,
+    QuarterNumber int,
+	MonthNumber int,
+	MonthName varchar(15),
+	WeekOfYear int,
+	DayName varchar (15),
+	WeekDay int,
+	DayOfMonth int,
+	Primary Key (TimeId)
+	)
+  
+ 

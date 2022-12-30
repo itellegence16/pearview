@@ -1,0 +1,15 @@
+{
+"mysql":  [
+{
+"spark_driver_path": "C:\\Users\\Sana Mahajan\\Documents\\mysql-jar\\mysql-connector-java-8.0.13.jar",
+"mysql_host_url": "mysql://localhost",
+"mysql_port": "3306",
+"driver":"com.mysql.jdbc.Driver",
+"table_name":"college",
+"db_name" : "pearview",
+"user"  : "root",
+"password": "admin@123",
+"query" : "select * from "
+}
+  ]
+}

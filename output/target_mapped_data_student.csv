@@ -1,0 +1,12 @@
+StudentId,FirstName,LastName,DateOfBirth,Gender,CurrentAddress,ZipCode,PermanentAddress,EmailId,ContactNumber,CollegeName,EnrollmentDate,College_id,Course_id,STANDARD_DATE,MiddleName,AlternateNumber,EnrollmentNumber,City,Country
+7312,Alex Jones,Alex Jones,1997-07-23,Male,582 Sanchez Avenue Powellhaven MO, 48276,582 Sanchez Avenue Powellhaven MO 48276,kingjohn@yahoo.com,4797832460,VJTI Mumbai,2022-05-25,204,392,2022-05-25,,,,,
+7231,Timothy Webb,Timothy Webb,1992-08-23,Male,7241 Maldonado Expressway Suite 751 Heatherview NH, 43984,7241 Maldonado Expressway Suite 751Heatherview NH 43984,timothy11@yahoo.com,5354298700,VJTI Mumbai,2022-03-23,204,392,2022-03-23,,,,,
+3893,Katrina West,Katrina West,2021-05-22,Female,500 Sanders Creek Suite 259Lake RickhavenNM 07575,,500 Sanders Creek Suite 259Lake RickhavenNM 07575,sharon76@hotmail.com,7524092580,Pune institute of computer technology,2022-06-28,101,518,2022-06-28,Katrina West,4148353040,,,
+1351,Melissa Carpenter,Melissa Carpenter,1961-01-21,Female,94504 Wu Crescent Apt. 055YangviewNV 10194,,94504 Wu Crescent Apt. 055 Yangview NV 10194,michellerivera@hotmail.com,5344699889,Pune institute of computer technology,2022-06-30,101,546,2022-06-30,Melissa Carpenter,6994958261,,,
+4508,Heather Hernandez,Heather Hernandez,2017-07-25,Female,8880 Ramirez Lock Apt. 166 North Marissa MD 77437,,8880 Ramirez Lock Apt. 166 North Marissa MD 77437,mark55@gmail.com,1738684485,Pune institute of computer technology,2022-06-309,101,734,,Heather Hernandez,7114205092,,,
+2000,Robert,William,1994-03-30,Male,,672461,36 Henry Courts,rwilliam@gmail.com,986456781,,2012-06-30,,,2012-06-30,Ferry,,251,LA,USA
+2001,Shawn,Symonds,1994-06-30,Male,,672461,36 Courts Alps,smarsh@gmail.com,789789571,,2012-10-30,,,2012-10-30,William,,252,LA,USA
+2002,Shakes,Henry,1996-06-30,Male,,672461,598 Courts Alps,sshakes@gmail.com,789722571,,2020-10-30,,,2020-10-30,William,,253,LA,USA
+2000,Robert,William,1994-03-30,Male,,672461,36 Henry Courts,rwilliam@gmail.com,986456781,,2012-06-30,,,2012-06-30,Ferry,,251,LA,USA
+2001,Shawn,Symonds,1994-06-30,Male,,672461,36 Courts Alps,smarsh@gmail.com,789789571,,2012-10-30,,,2012-10-30,William,,252,LA,USA
+2002,Shakes,Henry,1996-06-30,Male,,672461,598 Courts Alps,sshakes@gmail.com,789722571,,2020-10-30,,,2020-10-30,William,,253,LA,USA

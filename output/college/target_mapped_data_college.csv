@@ -1,0 +1,5 @@
+CollegeId,UniversityId,CollegeName,CollegeAddress,City,State,Country,ZipCode,ContactNumber,AlternateNumber
+109,3,MNIT Bhopal,Lake Garden house,Bhopal,Madhya Pradesh,India,676566,1687270788,1976320092
+107,2,VIT Vellore,76997 Julie Fields Apt. 408Lake Brianmouth MA 33057,Vellore,Tamil Nadu,India,411043,1687270788,1976320092
+204,1,VJTI Mumbai,32989 Susan Cove Apt. 912 Amandaberg KS 53532,Mumbai,Maharashtra,India,400019,7671189667,1381539006
+101,1,Pune institute of computer technology,76997 Julie Fields Apt. 408Lake Brianmouth MA 33057,Pune,Maharashtra,India,411043,1687270788,1976320092

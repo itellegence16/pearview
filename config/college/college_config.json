@@ -2,7 +2,7 @@
 "CollegeId": ["college_id", "colleges_id", "id","College_id"],
 "UniversityId": ["university_id", "University_Id"],
 "CollegeName": ["college_name", "college-name"],
-"CollegeAddress": [ "address","college_address"],
+"CollegeAddress": [ "address","college_address","Address"],
 "City": ["city","City"],
 "State": ["state","State"],
 "Country": ["country", "nation","Country"],

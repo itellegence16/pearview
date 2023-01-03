@@ -4,10 +4,10 @@ from pyspark.sql import SparkSession
 from pyspark.sql.functions import when,split
 import os,json,getpass
 from pyspark.sql import functions as F
-table_details=str(input("Enter the table name: e.g. student, course, college: ")).lower()
+table_details=str(input("Enter the table name: e.g. student, course, college, admission: ")).lower()
 source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\source_input\\"+table_details+"\\"
 config_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\config\\"+table_details+"\\"
-output_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\output\\"
+output_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\output\\"+table_details+"\\"
 source_dir_length=len(os.listdir(source_dir))
 target_file=output_dir+"target_mapped_data_"+table_details+".csv"
 col_csv=output_dir+"col.csv"

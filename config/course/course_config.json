@@ -2,5 +2,7 @@
 "CourseId":   ["course_id", "courses_id"],
 "CourseName": ["course_name","subject","course_name","course-name"],
 "CourseDuration":  ["course_duration","duration"],
-"NoOfSemesters": ["No_of_Semester","no_of_semester"]
+"NoOfSemesters": ["No_of_Semester","no_of_semester"],
+"CreatedDate":["created_date"],
+"UpdateDate":["updated_date"]
 }

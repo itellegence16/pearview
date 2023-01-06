@@ -1,1 +1,1 @@
-AdmissionID,CourseAppliedDate,CourseEnrollmentDate,AdmissionFee,CourseId,StudentId
+AdmissionID,CourseAppliedDate,CourseEnrollmentDate,AdmissionFee,CourseId,StudentId,CreatedDate,UpdateDate

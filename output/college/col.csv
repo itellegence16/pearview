@@ -1,1 +1,1 @@
-CollegeId,UniversityId,CollegeName,CollegeAddress,City,State,Country,ZipCode,ContactNumber,AlternateNumber
+CollegeId,UniversityId,CollegeName,CollegeAddress,City,State,Country,ZipCode,ContactNumber,AlternateNumber,CreatedDate,UpdateDate

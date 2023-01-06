@@ -4,5 +4,7 @@
 "CourseEnrollmentDate":  ["course_enrolled_date","Admission_date","admission_date"],
 "AdmissionFee": ["admission_fee","fee"],
 "CourseId": ["course_id", "courses_id"],
-"StudentId": ["student_id", "stud_id"]
+"StudentId": ["student_id", "stud_id"],
+"CreatedDate":["created_date"],
+"UpdateDate":["updated_date"]
 }

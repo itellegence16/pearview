@@ -18,6 +18,8 @@
 "CollegeName": ["college_name", "college","CollegeName","college-name"],
 "EnrollmentDate": ["enrollment_date", "enroll_date", "date_of_enrollment","EnrollmentDate"],
 "College_id": ["college_id", "colleges_id","College_id"],
-"Course_id": ["course_id", "courses_id"]
+"Course_id": ["course_id", "courses_id"],
+"CreatedDate":["created_date"],
+"UpdateDate":["updated_date"]
  }
 

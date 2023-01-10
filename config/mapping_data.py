@@ -1,13 +1,22 @@
 import getpass_asterisk.getpass_asterisk
+import sys
 import pandas as pd
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import when,split
 import os,json,getpass
 from pyspark.sql import functions as F
-table_details=str(input("Enter the table name: e.g. student, course, college, admission: ")).lower()
-source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\source_input\\"+table_details+"\\"
-config_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\config\\"+table_details+"\\"
-output_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\output\\"+table_details+"\\"
+from settings import *
+from subprocess import call
+
+table_details = sys.argv[1]
+print(table_details)
+# table_details = str(input("Enter the table name: e.g. student, course, college, admission: ")).lower()
+source_dir = source_dir + "\\" + table_details + "\\"
+config_dir = dir_name + "\\" + table_details + "\\"
+output_dir = output_dir + "\\" + table_details + "\\"
+#source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\source_input\\"+table_details+"\\"
+#config_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\config\\"+table_details+"\\"
+#output_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\output\\"+table_details+"\\"
 source_dir_length=len(os.listdir(source_dir))
 target_file=output_dir+"target_mapped_data_"+table_details+".csv"
 col_csv=output_dir+"col.csv"
@@ -24,11 +33,14 @@ def create_spark_session():
             .appName('Read source data into dataframe').getOrCreate()
     return spark
 
-def consolidated_data_to_sql(df_target):
+'''def consolidated_data_to_sql(df_target):
         df_target.select(df_target.columns).write.format("jdbc").option("url", "jdbc:"+json_file_config_details["mysql"][i]["mysql_host_url"]\
                 +":"+json_file_config_details["mysql"][i]["mysql_port"]+"/"+json_file_config_details["mysql"][i]["db_name"]) \
             .option("driver", json_file_config_details["mysql"][i]["driver"]).option("dbtable", json_file_config_details["mysql"][i]["table_name"]) \
             .option("user", json_file_config_details["mysql"][i]["user"]).option("password", json_file_config_details["mysql"][i]["password"]).mode('overwrite').save()
+            
+        '''
+
 def read_source_data():
     df_col= pd.DataFrame(columns=list(column_mapping.keys()))
     csv_col=df_col.to_csv(col_csv,index=False)
@@ -42,8 +54,10 @@ def read_source_data():
     df_target.toPandas().to_csv(target_file,index=False)
     print(df_target.columns)
     print("Target table: ")
+    print(df_target)
+    df_target.show()
     ####Load consolidated data into MySql Table###
-    consolidated_data_to_sql(df_target)
+    #consolidated_data_to_sql(df_target)
 
 
 def transform_source_data(df_source,df_target):
@@ -66,6 +80,7 @@ def transform_source_data(df_source,df_target):
                         .otherwise(df_source.Gender))
             if (key == "EnrollmentDate"):
                 df_source = convert_dates(df_source)
+
     #### To input source column data into target columns####
     result=df_source.unionByName(df_target,allowMissingColumns=True)
     ##
@@ -89,9 +104,13 @@ def convert_dates(ds_with_dates):
     sdf1 = sdf.drop('yyyy/MM/dd',"yyyy-MM-dd", "MM/dd/yyyy", "MM-dd-yyyy", 'dd/MM/yy', 'dd-MM-yy')
     return sdf1
 
+def open_read_source_data_py_file():
+    call(["python","read_source_data.py"])
+
 
 if __name__ == '__main__':
     spark = create_spark_session()
+    open_read_source_data_py_file()
     if(source_dir_length>=1):
       read_source_data()
     else:

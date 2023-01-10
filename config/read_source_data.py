@@ -5,14 +5,20 @@ from pyspark import SparkContext
 from pyspark.sql import SparkSession,SQLContext
 from mysql.connector import Error
 import getpass
-db_name="pearview"
-table_details=str(input("Enter the table name: e.g. student, course, college, admission: ")).lower()
-#table_details="student"
+import sys
+# from mapping_data import table_details
+from settings import *
+db_name = "pearview"
+table_details = sys.argv[1]
+# table_details = str(input("Enter the table name: e.g. student, course, college, admission: ")).lower()
+# table_details="student"
 print(table_details)
-config_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\config\\"+table_details+"\\"
-source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\source_input\\"+table_details+"\\"
-config_file = open(config_dir+"read_source_"+table_details+"_config.json")
+# config_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\config\\"+table_details+"\\"
+# source_dir=r"C:\Users\Sana Mahajan\Documents\git_practice\pearview\\source_input\\"+table_details+"\\"
 
+source_dir = source_dir + "\\" + table_details + "\\"
+config_dir = dir_name + "\\" + table_details + "\\"
+config_file = open(config_dir+"read_source_"+table_details+"_config.json")
 json_file_config_details=json.load(config_file)
 
 def read_from_mysql():
@@ -54,6 +60,8 @@ def read_from_rds():
         print("Issue while connecting to RDS instance")
    except:
        print("No RDS instance has been configured")
+
+
 
 read_from_mysql()
 #read_from_rds()

@@ -1,10 +1,13 @@
 {
 "AdmissionID":   ["Admission_id", "admission_id"],
 "CourseAppliedDate": ["course_applied_date","applied_date"],
-"CourseEnrollmentDate":  ["course_enrolled_date","Admission_date","admission_date"],
+"CourseEnrollmentDate":  ["course_enrolled_date","Admission_date","start_date"],
+"CourseEndDate":  ["END_DATE","course_end_date","end_date"],
 "AdmissionFee": ["admission_fee","fee"],
 "CourseId": ["course_id", "courses_id"],
 "StudentId": ["student_id", "stud_id"],
 "CreatedDate":["created_date"],
 "UpdateDate":["updated_date"]
 }
+
+

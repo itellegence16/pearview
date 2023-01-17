@@ -1,5 +1,3 @@
 CollegeId,UniversityId,CollegeName,CollegeAddress,City,State,Country,ZipCode,ContactNumber,AlternateNumber,CreatedDate,UpdateDate
-109,3,MNIT Bhopal,Lake Garden house,Bhopal,Madhya Pradesh,India,676566,1687270788,1976320092,,
-107,2,VIT Vellore,76997 Julie Fields Apt. 408Lake Brianmouth MA 33057,Vellore,Tamil Nadu,India,411043,1687270788,1976320092,,
-204,1,symbiosis institute of technology,"483 Pamela Islands Suite 947Port Matthewport, ND 67556",Nashik,Maharashtra,India,400019,3886039421,1847735412,2022-12-26 14:47:43.809721,2022-12-26 14:47:43.139536
-101,1,Pune institute of computer technology,"57008 Lester Hills Apt. 602 Port Richardfort, TX 19277",Pune,Maharashtra,India,411043,3245654799,2981222393,2022-09-18 15:14:30.235346,2022-09-19 15:14:30.377406
+204,1,symbiosis institute of technology,"3838 Hines Curve South Regina, RI 50384",Nashik,Maharashtra,India,422010,6019304518,2581849617,2023-01-03 13:08:54.829098,2023-01-03 13:08:54.619194
+101,1,Pune institute of computer technology,"0643 Underwood Burgs Frankville, MS 28963",Pune,Maharashtra,India,411043,5665940554,2767947092,2022-09-26 13:13:13.622130,2022-09-27 13:13:13.398842

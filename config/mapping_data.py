@@ -99,7 +99,7 @@ def convert_dates(ds_with_dates):
         .withColumn("MM-dd-yyyy", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'MM-dd-yyyy').cast('timestamp'))) \
         .withColumn("dd/MM/yy", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'dd/MM/yy').cast('timestamp'))) \
         .withColumn("dd-MM-yy", F.to_date(F.unix_timestamp(ds_with_dates.EnrollmentDate, 'dd-MM-yy').cast('timestamp'))) \
-        .withColumn("STANDARD_DATE",
+        .withColumn("EnrollmentDate",
                     F.coalesce("yyyy/MM/dd", "yyyy-MM-dd", "MM/dd/yyyy", "MM-dd-yyyy", 'dd/MM/yy', 'dd-MM-yy'))
     sdf1 = sdf.drop('yyyy/MM/dd',"yyyy-MM-dd", "MM/dd/yyyy", "MM-dd-yyyy", 'dd/MM/yy', 'dd-MM-yy')
     return sdf1
@@ -110,7 +110,7 @@ def open_read_source_data_py_file():
 
 if __name__ == '__main__':
     spark = create_spark_session()
-    open_read_source_data_py_file()
+    # open_read_source_data_py_file()
     if(source_dir_length>=1):
       read_source_data()
     else:

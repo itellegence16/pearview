@@ -1,1 +1,1 @@
-StudentId,EnrollmentNumber,FirstName,LastName,MiddleName,DateOfBirth,Gender,PermanentAddress,CurrentAddress,City,Country,ZipCode,EmailId,ContactNumber,AlternateNumber,CollegeName,EnrollmentDate,College_id,Course_id,CreatedDate,UpdateDate
+StudentId,EnrollmentNumber,FirstName,LastName,MiddleName,DateOfBirth,Gender,PermanentAddress,CurrentAddress,EmailId,ContactNumber,AlternateNumber,CollegeName,EnrollmentDate,College_id,Course_id,CreatedDate,UpdateDate

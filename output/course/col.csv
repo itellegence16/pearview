@@ -1,1 +1,1 @@
-CourseId,CourseName,CourseDuration,NoOfSemesters,CreatedDate,UpdateDate
+CourseId,CourseName,CourseDuration,NoOfSemesters,TotalSeats,AllocatedSeats,CreatedDate,UpdateDate

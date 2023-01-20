@@ -10,5 +10,5 @@ df1 = df.select("StudentId", "FirstName", "LastName", "Gender", "PermanentAddres
 #df1.show()
 print(df1.count())
 write_to_mysql(df1,"student_dim")
-#write_to_redshift(df1, "student_dim")
+
 

@@ -9,4 +9,4 @@ df_course.show(10)
 df_course_dim = df_course.select("CourseId","CourseName","TotalSeats","AllocatedSeats")
 df_course_dim.show()
 write_to_mysql(df_course_dim,"course_dim")
-#write_to_redshift(df_course_dim, "course_dim")
+

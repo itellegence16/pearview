@@ -33,5 +33,5 @@ df1=admission_factdf.select("StudentId",col("College_id").alias('CollegeId'),col
 #df2=df1.dropDuplicates(['StudentId'])
 print(df1.count())
 write_to_mysql(df1,"admission_fact")
-#write_to_redshift(df1, "admission_fact")
+
 

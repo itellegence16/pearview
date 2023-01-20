@@ -11,4 +11,4 @@ df_college=read_from_csv(spark,"../output/college/target_mapped_data_college.csv
 df_college_dim = df_college.select("CollegeId", "CollegeName", "UniversityId", "CollegeAddress", "City", "ZipCode")
 df_college_dim.show()
 write_to_mysql(df_college_dim,"college_dim")
-#write_to_redshift(df_college, "college_dim")
+

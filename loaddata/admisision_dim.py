@@ -11,4 +11,4 @@ df_admission_dim = df_admission.select("AdmissionId",to_date( "CourseEnrollmentD
 df1 = df_admission_dim.dropDuplicates(['AdmissionId'])
 #print(df1.count())
 write_to_mysql(df1,"admission_dim")
-#write_to_redshift(df_college, "admission_dim")
+

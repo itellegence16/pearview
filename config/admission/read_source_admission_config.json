@@ -29,17 +29,18 @@
  {
 "user": "admin",
 "password": "admin123",
-"host" : "jdbc:mysql://pearview.c3tne9nwnjmy.ap-northeast-1.rds.amazonaws.com:3306/testdb?useSSL=false",
-"table_name" : "admission",
-"db_name" : "testdb",
-"driver" : "com.mysql.jdbc.Driver"
+"host" : "jdbc:mysql://pearview.c3tne9nwnjmy.ap-northeast-1.rds.amazonaws.com:3306/pearview?useSSL=false",
+"table_name" : "pict_admission",
+"db_name" : "pearview",
+"driver" : "com.mysql.jdbc.Driver",
+"query" : "select * from "
  },
  {
- "user": "admin",
-"password": "admin123",
-"host" : "jdbc:mysql://pearview.c3tne9nwnjmy.ap-northeast-1.rds.amazonaws.com:3306/testdb?useSSL=false",
-"table_name" : "admission1",
-"db_name" : "testdb",
+ "user": "swati",
+"password": "Admin123",
+"host" : "jdbc:mysql://database-1.c3tne9nwnjmy.ap-northeast-1.rds.amazonaws.com:3306/pearview2?useSSL=false",
+"table_name" : "symbiosis_admission",
+"db_name" : "pearview2",
 "driver" : "com.mysql.jdbc.Driver"
  }
  ]

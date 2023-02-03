@@ -27,6 +27,7 @@ config_file = open(config_dir+"write_source_"+table_details+"_config.json")
 json_file_config_details=json.load(config_file)
 i=0
 #password=getpass.getpass("Enter the password for MYSQL workbench user "+json_file_mysql_table["config"][i]["user"]+ ": ")
+
 def create_spark_session():
     spark=SparkSession.builder.config\
     ("spark.driver.extraClassPath",json_file_config_details["mysql"][i]["spark_driver_path"])\
@@ -104,8 +105,6 @@ def convert_dates(ds_with_dates):
     sdf1 = sdf.drop('yyyy/MM/dd',"yyyy-MM-dd", "MM/dd/yyyy", "MM-dd-yyyy", 'dd/MM/yy', 'dd-MM-yy')
     return sdf1
 
-def open_read_source_data_py_file():
-    call(["python","read_source_data.py"])
 
 
 if __name__ == '__main__':

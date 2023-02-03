@@ -1,0 +1,7 @@
+{
+"user": "awsuser",
+"password": "Admin123",
+"host" : "jdbc:redshift://pearview-redshift-datamart.c2w7gz7liusd.ap-south-1.redshift.amazonaws.com:5439/pearview?user=awsuser&password=Admin123;Readonly=false",
+"db_name" : "pearview",
+"driver" : "com.amazon.redshift.jdbc42.Driver"
+ }

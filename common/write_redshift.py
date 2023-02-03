@@ -1,9 +1,9 @@
+import json
+config_file = open("C:\\Users\\Swati P Kamble\\Desktop\\pearview\\common\\redshit.json")
+json_file_config_details=json.load(config_file)
 def write_to_redshift(df, table_name):
-    url = "jdbc:redshift://redshift-cluster-1.cag974yfyey1.us-east-1.redshift.amazonaws.com:5439/finaldb"
-    username = "awsuser"
-    password = "Vidya#123"
-    df.write.format("jdbc").option("driver", "com.amazon.redshift.jdbc42.Driver").option("dbtable", table_name).option(
-        "url", url).option("user", username).option("password", password).mode("overwrite").save()
+    df.write.format("jdbc").option("driver", json_file_config_details["driver"]).option("dbtable", table_name).option(
+        "url", json_file_config_details["host"]).option("user",json_file_config_details["user"]).option("password", json_file_config_details["password"]).mode("append").save()
 
 
 def write_to_mysql(df, table_name):

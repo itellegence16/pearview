@@ -11,7 +11,7 @@ from io import StringIO
 # from mapping_data import table_details
 from settings import *
 from dotenv import load_dotenv
-from common.read_wrapper import read_from_csv
+from read_wrapper import read_from_csv
 
 table_details = sys.argv[1]
 bucket=os.getenv('bucket')
